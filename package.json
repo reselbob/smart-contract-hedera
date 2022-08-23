@@ -1,0 +1,49 @@
+{
+  "name": "smart-contract-hedera",
+  "version": "1.0.0",
+  "description": "A project that demonstrates how to create a basic smart contract under Hedera",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "test": "mocha --require ts-node/register test/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reselbob/smart-contract-hedera.git"
+  },
+  "keywords": [
+    "smart",
+    "contract",
+    "dlt",
+    "distributed",
+    "ledger"
+  ],
+  "author": "Bob Reselman <reselbob@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reselbob/smart-contract-hedera/issues"
+  },
+  "homepage": "https://github.com/reselbob/smart-contract-hedera#readme",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/chai": "^4.3.1",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^14.11.2",
+    "@types/supertest": "^2.0.12",
+    "chai": "^4.3.6",
+    "gts": "^4.0.0",
+    "mocha": "^10.0.0",
+    "supertest": "^6.2.3",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.18.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "winston": "^3.8.1"
+  }
+}
