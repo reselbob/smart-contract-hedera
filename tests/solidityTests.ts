@@ -13,14 +13,13 @@ describe('Solidity Test', () => {
 
 
     it('Can Get ByteCodePath', async () => {
-        const client = new PhoneBookClient();
-        const fileSpec = client.getContractByteCodeFileSpec();
+        //const client = new PhoneBookClient();
+        const fileSpec = PhoneBookClient.getContractByteCodeFileSpec();
         expect(fileSpec).to.be.a('string');
     });
 
     it('Can Get ByteCode', async () => {
-        const client = new PhoneBookClient();
-        const fileSpec = client.getContractByteCodeFileSpec();
-        expect(fileSpec).to.be.a('string');
+        const buf = PhoneBookClient.getContractByteCode();
+        expect(buf).to.be.instanceof(Buffer)
     });
 });
