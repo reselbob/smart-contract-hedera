@@ -10,7 +10,7 @@ import {
     ContractCreateTransaction, ContractExecuteTransaction,
     ContractFunctionParameters,
     FileCreateTransaction, PrivateKey,
-    TransactionReceipt,
+    TransactionReceipt, TransactionRecord,
 } from "@hashgraph/sdk";
 import {BigNumber} from "@hashgraph/sdk/lib/Transfer";
 //import Node from "@hashgraph/sdk/lib/Node";
@@ -77,36 +77,37 @@ export class PhoneBookClient {
         return fs.readFileSync(PhoneBookClient.getContractByteCodeFileSpec());
     }
 
-    public static async createContract(): Promise<TransactionReceipt> {
+    public static async createContract(): Promise<TransactionRecord> {
         const client = PhoneBookClient.getClientSync();
         logger.info('Getting Transaction Receipt')
         if(! PhoneBookClient.fileId){
             PhoneBookClient.fileId = await PhoneBookClient.getFileId(client);
         }
         const contractInstantiateTx = new ContractCreateTransaction()
-            .setBytecodeFileId(PhoneBookClient.fileId)
+            .setBytecodeFileId(PhoneBookClient.fileId.toString())
             .setGas(100000)
         const contractInstantiateSubmit = await contractInstantiateTx.execute(client);
-        let contractInstantiateRx: TransactionReceipt;
+        let contractInstantiateRec: TransactionRecord;
         try {
-            contractInstantiateRx = await contractInstantiateSubmit.getReceipt(client);
+            contractInstantiateRec = await contractInstantiateSubmit.getRecord(client);
         } catch (e) {
             logger.error(e);
+            throw e;
         }
-        logger.info(`Got Transaction - contractId: ${contractInstantiateRx.contractId},  
-            The smart contract ID in Solidity format is: ${contractInstantiateRx.contractId.toSolidityAddress()} `)
-        return contractInstantiateRx;
+        logger.info(`Got Transaction Record - memo: ${contractInstantiateRec.transactionMemo}`);
+        return contractInstantiateRec;
     }
 
     private static async getFileId(client: NodeClient):Promise<any> {;
-        this.contractBytecode = fs.readFileSync(this.getContractByteCodeFileSpec());
+        PhoneBookClient.contractBytecode = fs.readFileSync(this.getContractByteCodeFileSpec());
         const fileCreateTx = new FileCreateTransaction()
-            .setContents(this.contractBytecode)
+            .setContents(PhoneBookClient.contractBytecode)
             .setKeys([PhoneBookClient.getOperatorKey()])
             .freezeWith(client);
         const fileCreateSign = await fileCreateTx.sign(PhoneBookClient.getOperatorKey());
         const fileCreateSubmit = await fileCreateSign.execute(client);
         const fileCreateRx = await fileCreateSubmit.getReceipt(client);
+        logger.info(`Just got fileId: ${fileCreateRx.fileId}`)
         return fileCreateRx.fileId;
     }
 

@@ -3,7 +3,7 @@ import {before, describe, it} from 'mocha';
 import {logger} from '../src/logger';
 import {PhoneBookClient} from "../src/phoneBookClient";
 import path from 'path';
-import {TransactionReceipt} from "@hashgraph/sdk";
+import {TransactionRecord} from "@hashgraph/sdk";
 require('dotenv').config({ path: path.join(__dirname, '../', 'src','.env') })
 
 describe('Phone Book Tests', () => {
@@ -14,8 +14,10 @@ describe('Phone Book Tests', () => {
 
 
     it('Can Create Contract', async () => {
-        const receipt = await PhoneBookClient.createContract();
-        expect(receipt).to.be.instanceof(TransactionReceipt)
+        const record = await PhoneBookClient.createContract().catch(e => {
+            logger.error(e)
+        });
+        expect(record).to.be.instanceof(TransactionRecord)
     });
 
 });
