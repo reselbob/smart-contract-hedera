@@ -68,3 +68,27 @@ The smart contract binary will be in the `./bin` directory created by the shell 
 ## Running the tests
 
 `npm test`
+
+You'll get output similar to the following snipplet:
+
+```
+.
+.
+.
+
+{
+  message: 'Getting entry for Jaunita-Tremblay',
+  level: 'info',
+  timestamp: '2022-08-26T05:25:11.580Z'
+}
+{
+  message: "- Here's the phone number associated with Jaunita-Tremblay: 2103588668",
+  level: 'info',
+  timestamp: '2022-08-26T05:25:11.703Z'
+}
+    ✔ Can add and get entry (5663ms)
+
+
+  1 passing (6s)
+
+```
