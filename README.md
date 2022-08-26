@@ -72,10 +72,27 @@ The smart contract binary will be in the `./bin` directory created by the shell 
 You'll get output similar to the following snipplet:
 
 ```
-.
-.
-.
-
+ Smart Contract Phone Book Tests
+{
+  message: ' Starting Smart Contract Phone Book Tests',
+  level: 'info',
+  timestamp: '2022-08-26T05:25:06.037Z'
+}
+{
+  message: 'Creating entry: {"name":"Jaunita-Tremblay","mobileNumber":2103588668}',
+  level: 'info',
+  timestamp: '2022-08-26T05:25:06.040Z'
+}
+{
+  message: 'The smart contract ID is: 0000000000000000000000000000000002dc9713',
+  level: 'info',
+  timestamp: '2022-08-26T05:25:09.744Z'
+}
+{
+  message: 'The smart contract address is: 0.0.48011027',
+  level: 'info',
+  timestamp: '2022-08-26T05:25:09.744Z'
+}
 {
   message: 'Getting entry for Jaunita-Tremblay',
   level: 'info',
