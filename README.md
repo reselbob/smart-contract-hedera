@@ -69,7 +69,7 @@ The smart contract binary will be in the `./bin` directory created by the shell 
 
 `npm test`
 
-You'll get output similar to the following snipplet:
+You'll get output similar to the following:
 
 ```
  Smart Contract Phone Book Tests
