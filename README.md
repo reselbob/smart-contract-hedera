@@ -4,7 +4,7 @@ The project demonstrates how to create a smart contract under Hedera that stores
 In order to use this code you need to have a [TestNet](https://docs.hedera.com/guides/testnet) account. When you create a TestNet account you'll be given an `Account ID` and a `Private Key`. You'll 
 declare these values in environment variables. Environment variable configuration is discussed in a section below.
 
-The project contains code for a static class named `SmartContractPhoneBook`. The class `SmartContractPhoneBook` exposes to methods:
+The project contains code for a static class named `SmartContractPhoneBook`. The class `SmartContractPhoneBook` exposes two methods:
 
 * `SmartContractPhoneBook.addEntry(entry: Entry)`
 * `SmartContractPhoneBook.getEntry(name: string)`
