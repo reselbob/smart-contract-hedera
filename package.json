@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/reselbob/smart-contract-hedera#readme",
   "devDependencies": {
+    "@faker-js/faker": "^7.4.0",
     "@types/axios": "^0.14.0",
     "@types/chai": "^4.3.1",
     "@types/express": "^4.17.13",

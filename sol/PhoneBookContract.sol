@@ -3,17 +3,18 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract PhoneBookContract {
 
-mapping (string => uint) public myDirectory;
+    mapping(string => uint) public myDirectory;
 
-constructor (string memory _name, uint _mobileNumber) public {
+    //constructor (string memory _name, uint _mobileNumber) public {
+    //myDirectory[_name] = _mobileNumber;
+    // }
+
+    function setMobileNumber(string memory _name, uint _mobileNumber) public {
         myDirectory[_name] = _mobileNumber;
     }
 
-function setMobileNumber(string memory _name, uint _mobileNumber) public {
-        myDirectory[_name] = _mobileNumber;
-    }
-
-function getMobileNumber(string memory _name) public view returns (uint) {
+    function getMobileNumber(string memory _name) public view returns (uint) {
         return myDirectory[_name];
     }
+
 }
