@@ -82,7 +82,7 @@ export class SmartContractPhoneBook {
     }
 
     public static async addEntry(entry: Entry): Promise<TransactionRecord> {
-        logger.info(`Creating entry: ${entry}`)
+        logger.info(`Creating entry: ${JSON.stringify(entry)}`)
         const contractId = await this.getContractId()
 
         // Call contract function to update the state variable
