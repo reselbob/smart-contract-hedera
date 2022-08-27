@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc --build",
     "clean": "tsc --build --clean",
+    "compile": "tsc",
     "test": "mocha --require ts-node/register tests/**/*.ts"
   },
   "repository": {
