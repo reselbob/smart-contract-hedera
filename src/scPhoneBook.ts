@@ -100,12 +100,18 @@ export class SmartContractPhoneBook {
     public static async getEntry(name: string): Promise<Entry> {
         logger.info(`Getting entry for ${name}`)
         const contractId = await this.getContractId()
+            .catch(e => {
+                logger.error(e)
+            })
         // Query the contract to check changes in state variable
         const contractQueryTx = new ContractCallQuery()
             .setContractId(contractId)
             .setGas(100000)
             .setFunction("getMobileNumber", new ContractFunctionParameters().addString(name));
-        const contractQuerySubmit = await contractQueryTx.execute(this.client);
+        const contractQuerySubmit = await contractQueryTx.execute(this.client)
+            .catch(e => {
+                logger.error(e);
+            });
         const contractQueryResult = contractQuerySubmit.getUint256(0);
 
         logger.info(`- Here's the phone number associated with ${name}: ${contractQueryResult.toNumber()}`)
