@@ -83,7 +83,7 @@ const entry = await SmartContractPhoneBook.getEntry('Harry')
 
 `npm install`
 
-Then, install the solidity compiler:
+Then, install the Solidity compiler:
 
 `sudo npm install -g solc`
 
