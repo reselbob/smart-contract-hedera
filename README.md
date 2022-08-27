@@ -90,7 +90,7 @@ Then, install the solidity compiler:
 
 ## Configuring the required environment variables
 
-You can declare environment variables in a `.env` file placed in the `./sol` directory. Configure the `.env` file like so:
+You can declare environment variables in a `.env` file placed in the `./src` directory. Configure the `.env` file like so:
 
 ```
 OPERATOR_ID=<ACCOUNT_ID_FROM_TESTNET>
