@@ -120,6 +120,16 @@ The smart contract binary will be in the `./bin` directory created by the shell 
 
 ## Running the tests
 
+The unit tests for this project use Account ID and Private key information you attached to the environment variables that you defined previously in the `./src/env` file. Thus, you need to copy the `env` file to the `./tests` directory. 
+
+Run the following command from the root of the source codes working directory to copy the configured `.env` file to the `./tests` directory:
+
+```
+cp ./src/.env ./tests/.env
+```
+
+Execute the following command to run the projects unit tests:
+
 `npm test`
 
 You'll get output similar to the following:
@@ -209,8 +219,3 @@ curl http://127.0.0.1:5010/ping
 You'll get output similar to the following:
 
 `{"message":"Pinged at","timestamp":1661567707424}%`
-
-
-
-
-
