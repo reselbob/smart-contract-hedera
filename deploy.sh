@@ -18,5 +18,7 @@ cp ./src/.env ./dist/.env
 echo "Start the API server.\mOpen a new terminal window and execute the following command after the server starts:\ncurl http://127.0.0.1:5010/ping"
 
 # start the server
-node ./dist/index.js
+cd ./dist
+
+node index.js
 
