@@ -9,8 +9,11 @@ import path from 'path';
 import {faker} from '@faker-js/faker';
 import {Entry} from "../src/scPhoneBook";
 import {ApiServer} from "../src/api";
-//import {TransactionRecord} from "@hashgraph/sdk";
-require('dotenv').config({path: path.join(__dirname, '../', 'src', '.env')})
+
+
+import dotenv from "dotenv"
+dotenv.config({path: path.join(__dirname, '../', 'src', '.env')})
+//require('dotenv').config({path: path.join(__dirname, '../', 'src', '.env')})
 
 describe('Smart Contract Phone Book API Tests', () => {
     before(async () => {

@@ -119,4 +119,3 @@ export class SmartContractPhoneBook {
         return {name, mobileNumber: contractQueryResult.toNumber()}
     }
 }
-
